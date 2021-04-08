@@ -1,5 +1,5 @@
-import { createSelector } from "reselect";
-import createStore from "../createStore";
+import { createSelector } from "reselect"
+
 
 export const getStateData = createSelector(
     state => state.state.data,
@@ -9,4 +9,8 @@ export const getStateData = createSelector(
 export const getStateSelect = createSelector(
     state => state.state.stateSelect,
     stateSelect => stateSelect
+)
+export const getStateHovers = createSelector(
+    state => state.state.hovers,
+    hovers => hovers
 )

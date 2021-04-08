@@ -1,10 +1,11 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { fetchState, setSelect } from "../action/stateAction";
+import { fetchState, setHover, setSelect } from "../action/stateAction";
 
 const initialState = {
     loading: false,
     data: [],
-    stateSelect: 5
+    stateSelect: null,
+    hovers: []
 };
 
 const stateReducer = createReducer(initialState, {
@@ -22,6 +23,11 @@ const stateReducer = createReducer(initialState, {
     },
     [setSelect.type]: (state, action) => {
         state.stateSelect = action.payload
+    },
+    [setHover.type]: (state, action) => {
+        state.hovers = state.hovers.length === 5 
+        ? [...state.hovers.slice(1), action.payload]
+        : [...state.hovers, action.payload]
     }
 }
     

@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { setHover } from '../Redux/action/stateAction'
 import { getStateSelect } from '../Redux/selector/stateSelector'
 
 export const Square = () => {
     const stateSquare = useSelector(getStateSelect)
+    const dispatch = useDispatch()
     const [square, setSquare] = useState([])
     const classSquare = stateSquare === '5' ? 'easy'
         : stateSquare === '10' ? 'medium'
@@ -14,20 +16,28 @@ export const Square = () => {
         setSquare(array)
     }, [stateSquare])
 
+    const handleHover = (e, string) => {
+        dispatch(setHover(string))
+        // console.dir(e.target.classList)
+        e.target.classList.contains('blue') 
+        ? e.target.classList.remove('blue')
+        : e.target.classList.add('blue')
+    }
+
     return (
         <div className="App__square" >
-            <div className="App__square__container">
+            {stateSquare && <div className="App__square__container">
                 {square.map((row, index) =>
                     <div key={index}
                         className={`row ${index + 1}`}
                     >
                         {square.map((col, i) =>
                             <div key={i}
-                                onMouseEnter={() => console.log(`row ${index + 1} col ${i + 1   }`)}
-                                className={`col ${i + 1} ${classSquare}`}></ div>
+                                onMouseEnter={(e) => handleHover(e,`row ${index + 1} col ${i + 1   }`)}
+                                className={`col ${i + 1} ${classSquare} ${Math.floor(Math.random()*5)%2 === 0 ? 'blue': ''}`}></ div>
                         )}
                     </div>)}
-            </div>
+            </div>}
         </div>
     )
 }

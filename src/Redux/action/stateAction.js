@@ -10,3 +10,4 @@ export const fetchState = createAsyncThunk('pictures/getState', async () => {
 })
 
 export const setSelect = createAction('SET_SELECT');
+export const setHover = createAction('SET_HOVER')
