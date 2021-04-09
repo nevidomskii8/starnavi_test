@@ -21,13 +21,13 @@ export const Controll = () => {
                             key={elem}
                             value={data[elem].field}
                         >
-                            {elem}
+                            {elem.slice(0,1).toUpperCase() + elem.slice(1).replace('Mode', ' mode')}
                         </option>
                     )}
                 </select>
                 <button onClick={() => handleClick()}>Start</button>
             </div>
-            <center>Hover squares</center>
+            <h2>Hover squares</h2>
         </div>
     )
 }
