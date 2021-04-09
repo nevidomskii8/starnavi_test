@@ -7,6 +7,7 @@ export const Square = () => {
     const stateSquare = useSelector(getStateSelect)
     const dispatch = useDispatch()
     const [square, setSquare] = useState([])
+
     const classSquare = stateSquare === '5' ? 'easy'
         : stateSquare === '10' ? 'medium'
             : stateSquare === '15' ? 'hard' : 'easy'
@@ -18,10 +19,9 @@ export const Square = () => {
 
     const handleHover = (e, string) => {
         dispatch(setHover(string))
-        // console.dir(e.target.classList)
-        e.target.classList.contains('blue') 
-        ? e.target.classList.remove('blue')
-        : e.target.classList.add('blue')
+        e.target.classList.contains('blue')
+            ? e.target.classList.remove('blue')
+            : e.target.classList.add('blue')
     }
 
     return (
@@ -33,8 +33,9 @@ export const Square = () => {
                     >
                         {square.map((col, i) =>
                             <div key={i}
-                                onMouseEnter={(e) => handleHover(e,`row ${index + 1} col ${i + 1   }`)}
-                                className={`col ${i + 1} ${classSquare} ${Math.floor(Math.random()*5)%2 === 0 ? 'blue': ''}`}></ div>
+                                onMouseEnter={(e) => handleHover(e, `row ${index + 1} col ${i + 1}`)}
+                                className={`col ${i + 1} ${classSquare} ${Math.floor(Math.random() * 5) % 2 === 0 ? 'blue' : ''}`}>
+                            </ div>
                         )}
                     </div>)}
             </div>}

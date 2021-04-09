@@ -4,9 +4,10 @@ import { setSelect } from '../Redux/action/stateAction'
 import { getStateData } from '../Redux/selector/stateSelector'
 
 export const Controll = () => {
-    const [state, setState]= useState(null)
+    const [state, setState] = useState(null)
     const data = useSelector(getStateData)
     const dispatch = useDispatch()
+
     const handleClick = () => {
         dispatch(setSelect(state))
     }
@@ -21,7 +22,7 @@ export const Controll = () => {
                             key={elem}
                             value={data[elem].field}
                         >
-                            {elem.slice(0,1).toUpperCase() + elem.slice(1).replace('Mode', ' mode')}
+                            {elem.slice(0, 1).toUpperCase() + elem.slice(1).replace('Mode', ' mode')}
                         </option>
                     )}
                 </select>
