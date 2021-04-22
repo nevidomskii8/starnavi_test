@@ -1,16 +1,15 @@
-import { useEffect } from "react"
-import { useDispatch } from "react-redux"
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { Controll } from "./components/ControlComponent";
 import { Info } from "./components/InfoComponent";
 import { Square } from "./components/SquareComponent";
-import { fetchState } from "./Redux/action/stateAction"
-import './App.scss'
-
+import { fetchState } from "./Redux/action/stateAction";
+import "./App.scss";
 
 function App() {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchState())
+    dispatch(fetchState());
   }, []);
 
   return (
@@ -22,4 +21,4 @@ function App() {
   );
 }
 
-export default App
+export default App;

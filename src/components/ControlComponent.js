@@ -1,34 +1,32 @@
-import React, { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { setSelect } from '../Redux/action/stateAction'
-import { getStateData } from '../Redux/selector/stateSelector'
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setSelect } from "../Redux/action/stateAction";
+import { getStateData } from "../Redux/selector/stateSelector";
 
 export const Controll = () => {
-    const [state, setState] = useState(null)
-    const data = useSelector(getStateData)
-    const dispatch = useDispatch()
+  const [state, setState] = useState(null);
+  const data = useSelector(getStateData);
+  const dispatch = useDispatch();
 
-    const handleClick = () => {
-        dispatch(setSelect(state))
-    }
+  const handleClick = () => {
+    dispatch(setSelect(state));
+  };
 
-    return (
-        <div className="App__controll">
-            <div>
-                <select onChange={(e) => setState(e.target.value)}>
-                    <option value='5'>Pick mode</option>
-                    {Object.keys(data).map(elem =>
-                        <option
-                            key={elem}
-                            value={data[elem].field}
-                        >
-                            {elem.slice(0, 1).toUpperCase() + elem.slice(1).replace('Mode', ' mode')}
-                        </option>
-                    )}
-                </select>
-                <button onClick={() => handleClick()}>Start</button>
-            </div>
-            <h2>Hover squares</h2>
-        </div>
-    )
-}
+  return (
+    <div className="App__controll">
+      <div>
+        <select onChange={(e) => setState(e.target.value)}>
+          <option value="5">Pick mode</option>
+          {Object.keys(data).map((elem) => (
+            <option key={elem} value={data[elem].field}>
+              {elem.slice(0, 1).toUpperCase() +
+                elem.slice(1).replace("Mode", " mode")}
+            </option>
+          ))}
+        </select>
+        <button onClick={() => handleClick()}>Start</button>
+      </div>
+      <h2>Hover squares</h2>
+    </div>
+  );
+};
