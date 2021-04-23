@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { Controll } from "./components/ControlComponent";
+import { Controll } from "./components/ControlComponent.js";
 import { Info } from "./components/InfoComponent";
 import { Square } from "./components/SquareComponent";
 import { fetchState } from "./Redux/action/stateAction";
 import "./App.scss";
 
-function App() {
+const App: React.FC = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchState());
@@ -19,6 +19,6 @@ function App() {
       <Info />
     </div>
   );
-}
+};
 
 export default App;

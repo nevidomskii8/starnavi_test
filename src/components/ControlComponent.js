@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setSelect } from "../Redux/action/stateAction";
-import { getStateData } from "../Redux/selector/stateSelector";
+import { getStateData, setSelect } from "../Redux/reducer/stateReducer";
+// import { setSelect } from "../Redux/action/stateAction.ts";
+// import { getStateData } from "../Redux/selector/stateSelector";
 
 export const Controll = () => {
   const [state, setState] = useState(null);

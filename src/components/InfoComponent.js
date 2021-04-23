@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { getStateHovers } from "../Redux/selector/stateSelector";
+import { getStateHovers } from "../Redux/reducer/stateReducer";
+
 
 export const Info = () => {
   const hovers = useSelector(getStateHovers);
