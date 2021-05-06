@@ -1,9 +1,12 @@
+/* eslint-disable import/extensions */
+/* eslint-disable import/no-unresolved */
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { Controll } from "./components/ControlComponent.js";
+import { Controll } from "./components/ControlComponent";
 import { Info } from "./components/InfoComponent";
 import { Square } from "./components/SquareComponent";
-import { fetchState } from "./Redux/action/stateAction";
+import { fetchState } from "./redux/action/stateAction";
 import "./App.scss";
 
 const App: React.FC = () => {

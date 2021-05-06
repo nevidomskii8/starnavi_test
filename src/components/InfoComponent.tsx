@@ -1,7 +1,8 @@
+/* eslint-disable import/extensions */
+/* eslint-disable import/no-unresolved */
 import React from "react";
 import { useSelector } from "react-redux";
-import { getStateHovers } from "../Redux/reducer/stateReducer";
-
+import { getStateHovers } from "../redux/reducer/stateReducer";
 
 export const Info = () => {
   const hovers = useSelector(getStateHovers);

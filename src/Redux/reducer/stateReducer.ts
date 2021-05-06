@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { fetchState } from "../action/stateAction";
 import { RootState } from "../createStore";
 
-interface interfaceState {
+interface InterfaceState {
   loading: boolean;
   data: any[];
   stateSelect: string | null;
@@ -11,7 +11,7 @@ interface interfaceState {
 }
 
 
-const initialState: interfaceState = {
+const initialState: InterfaceState = {
   loading: false,
   data: [],
   stateSelect: '',

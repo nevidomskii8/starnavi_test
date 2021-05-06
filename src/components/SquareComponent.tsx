@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getStateSelect, setHover } from "../Redux/reducer/stateReducer";
+import { getStateSelect, setHover } from "../redux/reducer/stateReducer";
 
 export const Square = () => {
   const stateSquare = useSelector(getStateSelect);

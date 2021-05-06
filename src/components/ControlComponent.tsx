@@ -1,17 +1,15 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getStateData, setSelect } from "../Redux/reducer/stateReducer";
-// import { setSelect } from "../Redux/action/stateAction.ts";
-// import { getStateData } from "../Redux/selector/stateSelector";
+import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { getStateData, setSelect } from '../redux/reducer/stateReducer'
 
 export const Controll = () => {
-  const [state, setState] = useState(null);
-  const data = useSelector(getStateData);
-  const dispatch = useDispatch();
+  const [state, setState] = useState(null)
+  const data = useSelector(getStateData)
+  const dispatch = useDispatch()
 
   const handleClick = () => {
-    dispatch(setSelect(state));
-  };
+    dispatch(setSelect(state))
+  }
 
   return (
     <div className="App__controll">
@@ -21,7 +19,7 @@ export const Controll = () => {
           {Object.keys(data).map((elem) => (
             <option key={elem} value={data[elem].field}>
               {elem.slice(0, 1).toUpperCase() +
-                elem.slice(1).replace("Mode", " mode")}
+                elem.slice(1).replace('Mode', ' mode')}
             </option>
           ))}
         </select>
@@ -29,5 +27,5 @@ export const Controll = () => {
       </div>
       <h2>Hover squares</h2>
     </div>
-  );
-};
+  )
+}
